@@ -62,6 +62,7 @@ function initMap() {
   // to the map type control.
   var mapOptions = {  
     zoom: 4,
+	scrollwheel: false,
     center: new google.maps.LatLng(55.899444, -97.139167),
     mapTypeControlOptions: {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
