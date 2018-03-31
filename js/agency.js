@@ -81,17 +81,21 @@ function initMap() {
         ['The Worst Scooter Club Ever, Vancouver', 49.246292, -123.116226],
         ['The Capital City Scooter Club, Victoria', 48.412375, -123.339482],
         ['Crude City Scooter Club , Edmonton', 53.517872, -113.566729],
-        ['Apocalypse Scooter Club , Calgary', 51.037375, -114.084306],
+        ['Apocalypse Scooter Club , Edmonton', 53.547981, -113.525560],
         ['Scootering Manitoba , Winnipeg', 49.899754, -97.137494],
         ['Toronto Moto Scooter Club , Toronto', 43.653226, -79.383184],
         ['Dogs Bollocks Scooter Club , London', 42.986950, -81.243177],
-        ['Golden Horseshoe Riding Club , Hamilton', 43.201578,-79.842217],
         ['Lambretta Club of Canada , Ottawa', 45.18841,-75.844315],
-        ['Ottawa Valley Scooter Club, Ottawa', 45.421530, -75.697193],
+        ['Ottawa Valley Scooter Club, Ottawa', 45.476985, -75.701981],
+        ['Vespa Club of Ottawa, Ottawa', 45.437008, -75.706787],
         ['Bitter End Scooter Club, Ottawa', 45.321415, -75.414619],
         ['Barking Mad Scooter Club, Bowmanville', 43.912604, -78.688019],
         ['Scooter Club Montreal, Montreal', 45.501689, -73.567256],
-        ['Halifax Scooter Council, Halifax', 44.648862, -63.57532]
+        ['East Coast Road Runners Scooter Club, Halifax', 44.679558, -63.477287],
+        ['Toronto Scooter Club, Toronto', 43.639222, -79.515266],
+		['Dancing Men Scooter Club, Winnipeg', 49.900237, -97.201023],
+        ['Halifax Scooter Council, Halifax', 44.648862, -63.641911],
+        ['Hammer Down Scooter Club, Hamilton', 43.25, -79.866667]
     ];
                         
     // Info Window Content
@@ -115,8 +119,14 @@ function initMap() {
         '</div>'],
 		
 		['<div class="info_content">' +
+        '<h3>Crude City Scooter Club</h3>' +
+        '<p>The Crude City Scooter Club meets on the first Sunday of each month at Wild Earth Cafe. </p>' +
+		'<p><a href="http://www.crudecityscooterclub.com/" target=_blank>More information</a></p>' +    
+        '</div>'],
+		
+		['<div class="info_content">' +
         '<h3>Apocalypse Scooter Club </h3>' +
-        '<p>The ApocalypseSC meets for a ride every Tuesday at Caffe Beano , 1613 9 Street SW. Meet and greet at 7:00pm, ride at 7:30pm.</p>' +
+        '<p>The ApocalypseSC meets We meet Sundays 11:00am at Iconoclast Coffee (11807 105 Ave NW, Edmonton) for conversation and some riding. Come join us.</p>' +
 		'<p><a href="http://www.apocalypsesc.com/" target=_blank>More information</a></p>' +    
         '</div>'],
 		
@@ -139,12 +149,6 @@ function initMap() {
         '</div>'],
 		
 		['<div class="info_content">' +
-        '<h3>Golden Horseshoe Scooter Riders</h3>' +
-        '<p>Check the club website for details on rides and memberships. </p>' +
-		'<p><a href="http://www.goldenhorseshoerc.ca/site/" target=_blank>More information</a></p>' +    
-        '</div>'],
-		
-		['<div class="info_content">' +
         '<h3>Lambretta Club of Canada</h3>' +
         '<p>Check the club website for details on rides and memberships. </p>' +
 		'<p><a href="https://www.facebook.com/pages/Lambretta-Club-of-Canada/1716112678615493/" target=_blank>More information</a></p>' +    
@@ -155,6 +159,13 @@ function initMap() {
         '<p>Check the club website for details on rides and memberships. </p>' +
 		'<p><a href="https://www.facebook.com/groups/117424818269206/" target=_blank>More information</a></p>' +    
         '</div>'],
+		
+		['<div class="info_content">' +
+        '<h3>Vespa Club of Ottawa</h3>' +
+        '<p>Check the club\'s Facebook page for details on rides and memberships. </p>' +
+		'<p><a href="https://www.facebook.com/vespaclubottawa/?fref=ts" target=_blank>More information</a></p>' +    
+        '</div>'],
+		
 		
 		['<div class="info_content">' +
         '<h3>Bitter End Scooter Club</h3>' +
@@ -175,9 +186,32 @@ function initMap() {
         '</div>'],
 		
 		['<div class="info_content">' +
+        '<h3>East Coast Road Runners Scooter Club</h3>' + 
+		'<p>Contact David Gage for details on rides and memberships. </p>' +
+		'<p><a href="mailto:davidgage66@hotmail.com" target=_blank>Email</a></p>' + 		
+        '</div>'],
+		
+		['<div class="info_content">' +
+        '<h3>Toronto Scooter Club</h3>' + 
+		'<p>Contact David Davidson for details on rides and memberships. </p>' +
+		'<p><a href="mailto:TorontoScooterClub@gmail.com" target=_blank>Email</a></p>' + 		
+        '</div>'],
+		
+		['<div class="info_content">' +
+        '<h3>Dancing Men Scooter Club</h3>' + 
+		'<p>Contact informat coming soon. </p>' +		
+        '</div>'],
+		
+		['<div class="info_content">' +
         '<h3>Halifax Scooter Council</h3>' +
         '<p>Check the club website for details on weekly rides and annual rally in the Annapolis Valley.</p>' +
 		'<p><a href="http://halifaxscootercouncil.com/" target=_blank>More information</a></p>' +    
+        '</div>'],
+		
+		['<div class="info_content">' +
+        '<h3>Hammer Down Scooter Club</h3>' +
+        '<p>Contact the club for details on rides and memberships.</p>' +
+		'<p><a href="mailto:hammerdownsc@hotmail.com" target=_blank>Email</a></p>' +    
         '</div>']
     ];
         

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+	session_start();
+	require_once("index.conf");
+	$language = new Language();
+	$lang = $language->getLanguage(@$_POST['lang']);
+?>
 <head>
 
     <meta charset="utf-8">
@@ -109,142 +114,115 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Welcome To...</div>
-                <div class="intro-heading">The Vespa Club of Canada</div>
-                <a href="#services" class="page-scroll btn btn-xl">About Us</a>
+                <?php echo $lang['intro'] ?>
             </div>
         </div>
     </header>
 	
 	<!-- About Section -->
     <section id="about"  class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="section-heading  text-center">About</h2>
-                    <h3 class="section-subheading text-muted  text-center">Canada has a history of scootering from the West coast to the Maritimes and all points in between.</h3>
-					<p> During the early 80's major cities like Montreal, Toronto, Hamilton, Calgary and Vancouver played roles in the popularity of Vespas courtesy of The Who's film Quadrophenia. </p>
-					<p>There were different groups that rode Vespas from Mods, skinheads, uni and of course scooter boys (Canada's version). There were many rallies in Southern Ontario, specifically Niagara Falls, and all parts in between as well as Mod nights in Toronto, Montreal and Vancouver.</p>
-					<p>It's the enthusiasm of Vespa lovers/owners that make this community thrive. Whether it's a slick paint scheme, modded out scoots, go-fast scoots or bog standard it's the rider that makes it their own.</p>
-					<p>Toronto, Montreal, Calgary and Halifax have clubs that continue to hold rallies as well as Vancouver, with their mild winters allowing year-round scootering. 
-					As the scooter culture grew across the nation, local clubs quickly formed to better meet the needs of their local scootering community.</p>
-					<p class="text-center"> <a href="#clubs" class="page-scroll btn btn-xl"><span class="hidden-sm hidden-xs">Look below to find a local scooter club in your community.</span><span class="hidden-md hidden-lg">Find a local club.</span></a></p>
-				
-					
-                </div>
-				<div class="col-md-12 text-center">
-					<h4>Find us on Facebook</h4>
-                    <ul class="list-inline social-buttons">
-                      
-                        <li><a href="https://www.facebook.com/vespaclubofcanada/"><i class="fa fa-facebook"></i></a>
-                        </li>
-                      
-                    </ul>
-                </div>
-            </div>
-		</div>
-	</section>
+      <div class="container">
+        <div class="row">
+          <?php echo $lang['about'] ?>
+        </div>
+      </div>
+    </section>
 	
 	<!-- History -->
 	<section id="history">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-					<h2 class="section-heading text-center">History</h2>
-                    <h3 class="section-subheading text-muted text-center">The Vespa has had a long and glorious history full of ups and downs. Today there is a reassurance in interest in the Vespa.  Take a walk through the history of the Vespa.</h3>
+					<h2 class="section-heading text-center"><?php echo $lang['history-title'] ?></h2>
+                    <h3 class="section-subheading text-muted text-center">
+                      <?php echo $lang['history-subtitle'] ?>
+                    </h3>
                     <ul class="timeline">
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/piaggio.jpg" alt="Piaggio factory">
+                                <img class="img-circle img-responsive" src="img/about/piaggio.jpg" alt="<?php echo $lang['t1884'] ?>">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>1884</h4>
-                                    <h4 class="subheading">Before Vespa</h4>
+                                    <h4 class="subheading"><?php echo $lang['t1884'] ?></h4>
                                 </div>
 								
     
                                 <div class="timeline-body">
-                                    <p class="text-muted">Founded by Rinaldo Piaggio in 1884, Piaggio initially produced locomotives and railway carriages.<span class="hidden-sm hidden-xs"> During World War I the company focused on producing aircraft.</span></p>
+                                    <p class="text-muted"><?php echo $lang['b1884'] ?></p>
                                 </div>
 								
                             </div>
                         </li>
 						<li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/bombers.jpg" alt="Piaggio makes bombers">
+                                <img class="img-circle img-responsive" src="img/about/bombers.jpg" alt="<?php echo $lang['t1940'] ?>">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>1940</h4>
-                                    <h4 class="subheading">Piaggio makes bombers</h4>
+                                    <h4 class="subheading"><?php echo $lang['t1940'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Piaggio is commissioned by the Italian government to supply their air force with bomber aircraft. <span class="hidden-sm hidden-xs">The Allies bomb the plants in WWII. After the war Italy was forced to cease manufacturing fighter planes.</span></p>
+                                    <p class="text-muted"><?php echo $lang['b1940'] ?></p>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/wasp.jpg" alt="The Vespa (Wasp) is born">
+                                <img class="img-circle img-responsive" src="img/about/wasp.jpg" alt="<?php echo $lang['t1940'] ?>">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>1946</h4>
-                                    <h4 class="subheading">The Vespa (Wasp) is born</h4>
+                                    <h4 class="subheading"><?php echo $lang['t1946'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Aeronautical engineer, Corradinio D’Ascanio sold the design he was working on for an inexpensive scooter to Piaggio <span class="hidden-sm hidden-xs"> for the Italian population needing a cheap form of transportationto. It is</span> called the Vespa.</p>
+                                    <p class="text-muted"><?php echo $lang['t1946'] ?></p>
                                 </div>
                             </div>
                         </li>
 						<li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1950.jpg" alt="Vespas shipped to Canada">
+                                <img class="img-circle img-responsive" src="img/about/1950.jpg" alt="<?php echo $lang['t1950'] ?>">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>1950</h4>
-                                    <h4 class="subheading">Vespas shipped to Canada</h4>
+                                    <h4 class="subheading"><?php echo $lang['t1950'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Vespas were shipped to North America via navy ships when sailors 
-									were posted and/or docked in Italy. They ended up in cities across Canada.</p>
-									<p class="text-muted hidden-sm hidden-xs"><i>Douglas Vespa</i> in the UK imported the first Vespas to Canada. They were sold at <i>Dupuis et Frères Retail Store</i> in Montreal. Then the first Allstate available in Canada was in 1953. Sold until 1966.</p>
-									<p class="text-muted hidden-sm hidden-xs">The official distributor in Canada was a bicycle shop in Montreal, <i>Louis Quilicot</i>, until 1974, then it went with <i>Vespa Newline</i> in Toronto, with Giancarlo.</p>
+                                   <?php echo $lang['b1950'] ?>
                                 </div>
                             </div>
                         </li>
 						<li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1960.jpg" alt="Vespas shipped to Canada">
+                                <img class="img-circle img-responsive" src="img/about/1960.jpg" alt="<?php echo $lang['t1960'] ?>">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>1960</h4>
-                                    <h4 class="subheading">The Mod Scene</h4>
+                                    <h4 class="subheading"><?php echo $lang['t1960'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted"><span class="hidden-sm hidden-xs">The birth of the Mod scene in England with The Who, the Kinks, The Small Faces
-									and many more R&B bands at the forefront of music listened to by young Mods.</span> Mods were
-									smart dressers with the latest Italian suits and shoes. Some started buying Vespas <span class="hidden-sm hidden-xs">(and
-									Lambrettas)</span> to be able to get around to Mod clubs and events. <span class="hidden-sm hidden-xs">It was also to
-									show off the latest fashion, what they wore and what their “modded-up” scooter wore.</span></p>
+                                    <p class="text-muted"><?php echo $lang['b1960'] ?></p>
                                 </div>
                             </div>
                         </li>
                         
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1970.jpg" alt="SEARS Allstate">
+                                <img class="img-circle img-responsive" src="img/about/1970.jpg" alt="<?php echo $lang['t1967'] ?>">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>1967</h4>
-                                    <h4 class="subheading">Super Cruisaire Allstate</h4>
+                                    <h4 class="subheading"><?php echo $lang['t1967'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Sears brought in a few Vespas in 1952 as a test of the market. These sold so well that Sears decided to begin full scale sales. The Sears Vespas were dubbed the "Super Cruisaire Allstate" and were sold from 1952 to 1967. The last year of sales in 1966-67 the Allstate was simply called the "Sears" scooter.</p>
+                                    <p class="text-muted"><?php echo $lang['b1967'] ?></p>
 								
 
                                 </div>
@@ -252,32 +230,29 @@
                         </li>
 						 <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1980.jpg" alt="">
+                                <img class="img-circle img-responsive" src="img/about/1980.jpg" alt="<?php echo $lang['t1980'] ?>">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>1980</h4>
-                                    <h4 class="subheading">The Second Mod Movement</h4>
+                                    <h4 class="subheading"><?php echo $lang['t1980'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">The Mod Revival came about with the release of The Who’s film <i>Quadrophenia</i> set in the heyday of the Mod scene in England 1964-65.<span class="hidden-sm hidden-xs"> As a result of this film there
-									were many Mod revival bands such as The Jam, Purple Hearts, The Lambrettas and more that
-									complemented Quadrophenia. Teens took to the sounds of these bands, the Mod look, the
-									sounds of the two-stroke Vespa (and Lambretta), the music and the Modded-up look of the scooters.</span></p>
+                                     <p class="text-muted"><?php echo $lang['b1980'] ?></p>
                                 </div>
                             </div>
                         </li>
 						<li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/1981.jpg" alt="Vespas leave North American market">
+                                <img class="img-circle img-responsive" src="img/about/1981.jpg" alt="<?php echo $lang['t1980'] ?>">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>1981</h4>
-                                    <h4 class="subheading">Many Vespa shops close across North America</h4>
+                                    <h4 class="subheading"><?php echo $lang['t1981'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Piaggio leaves the North American market due to strict American emission laws. Closing some shops across Canada and the USA.</p>
+                                    <p class="text-muted"><?php echo $lang['b1981'] ?></p>
                                 </div>
                             </div>
                         </li>
@@ -288,14 +263,10 @@
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>1985</h4>
-                                    <h4 class="subheading">Many owners are left with out mechanical support.</h4>
+                                    <h4 class="subheading"><?php echo $lang['t1985'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted"><span class="hidden-sm hidden-xs">Some shops across Canada had left-over parts but were hard to locate. This was well before the internet, eBay
-									and Google. You had to know someone who knew someone with extra parts or you
-									mailed a letter to shops in the UK.</span> A UK scooter magazine started publishing in the early 80’s,
-									called <i>Scooter Scene</i> <span class="hidden-sm hidden-xs">now called <i>Scootering</i></span> with ads for scooter shops that sold parts
-									internationally.</p>
+                                    <p class="text-muted"><?php echo $lang['b1985'] ?></p>
                                 </div>
                             </div>
                         </li>
@@ -306,53 +277,44 @@
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>1990's</h4>
-                                    <h4 class="subheading">Keeping the spirit alive</h4>
+                                    <h4 class="subheading"><?php echo $lang['t1990'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Vancouver and Toronto were the major cities with the larger populations of Vespa
-									owners were keeping the Vespa spirit alive.</p>
+                                    <p class="text-muted"><?php echo $lang['b1990'] ?></p>
                                 </div>
                             </div>
                         </li>
 						<li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/2001.jpg" alt="Piaggio returns to North America">
+                                <img class="img-circle img-responsive" src="img/about/2001.jpg" alt="<?php echo $lang['t2000'] ?>">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>2000</h4>
-                                    <h4 class="subheading">The Canadian Scooter Corp is formed</h4>
+                                    <h4 class="subheading"><?php echo $lang['t2000'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">The Canadian Scooter Corp was created and started opening up shops across
-									Canada<span class="hidden-sm hidden-xs"> with the city’s name attached i.e. Vespa Halifax, Vespa Burlington, Vespa Calgary etc</span>.
-									These shops sold various models <span class="hidden-sm hidden-xs">(including the ET2 and ET4 models)</span> which were quieter and
-									automatic. <span class="hidden-sm hidden-xs">These shops sold Vespa-branded products from clothing to books, helmets,
-									baggage for scooters and scooter accessories. The last geared Vespa, the PX150,
-									was imported as late as 2005 into Canada. They were a limited edition and each PX150 came
-									with a numbered plaque attached on the scooter.</span></p>
+                                    <p class="text-muted"><?php echo $lang['b2000'] ?></p>
                                 </div>
                             </div>
                         </li>
 						<li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="img/about/today.jpg" alt="New and vintage Vespas on the road">
+                                <img class="img-circle img-responsive" src="img/about/today.jpg" alt="<?php echo $lang['ttoday'] ?>">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4>Today</h4>
-                                    <h4 class="subheading">New and vintage Vespas on the road</h4>
+                                    <h4 class="subheading"><?php echo $lang['ttoday'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">There are many Vespa dealers across Canada and small businesses that maintain and restore Vespas. It's important to our Vespa community to support these local shops.</p>
+                                    <p class="text-muted"<?php echo $lang['btoday'] ?></p>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
+                                <?php echo $lang['tfinal'] ?>
                             </div>
                         </li>
                     </ul>
@@ -364,8 +326,8 @@
 	<section id="gallery" class="bg-light-gray">
 		<div class="container">
 			<div class="col-lg-12 text-center">
-				<h2 class="section-heading">Gallery</h2>
-				<h3 class="section-subheading text-muted">Take a look at some of the photos of our club members. If you'd like to submit a photo for our gallery please contact <a href="mailto:president@vespaclubofcanada.com">president@vespaclubofcanada.com</a>.</h3>
+				<h2 class="section-heading"><?php echo $lang['gallery-title'] ?></h2>
+				<h3 class="section-subheading text-muted"><?php echo $lang['gallery-sub'] ?></h3>
 				<!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/0bce015c480b5bc293f1f89d42bb8d80.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
 			</div>
 		</div>
@@ -374,134 +336,122 @@
 	<!-- Other clubs -->
 	<section id="clubs" class="">
 	<div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Other Local Scooter Clubs</h2>
-                    <h3 class="section-subheading text-muted">Below are scooter clubs in your community. If you don't see one in your community, start a club yourself!</h3>
-					
-				</div>
-				
-            </div>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+          <h2 class="section-heading"><?php echo $lang['clubs-title'] ?></h2>
+          <h3 class="section-subheading text-muted"><?php echo $lang['clubs-sub'] ?></h3>
+      </div>
+    </div>
 	</div>
 	<div id="map"></div>
-
 	</section>
 	
 
 	<!-- Portfolio Grid Section -->
     <section id="sponsors" class="bg-light-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Sponsors</h2>
-                    <h3 class="section-subheading text-muted">The following businesses offer our members a discount of service, tires or parts.<br />If you know of or own a local business that would be interested in becoming "sponsor" at some level please contact <a href="mailto:president@vespaclubofcanada.com">president@vespaclubofcanada.com</a>.</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item center-block">
-                    <a href="http://www.enduroktm.com" class="portfolio-link" target=_blank>
-                      
-                        <img src="img/sponsor/enduro.jpg" class="img-responsive center-block" alt="Enduro website">
-                    </a>
-                    <div class="portfolio-caption text-center">
-                        <h4>Vespa Quebec/KTM Enduro</h4>
-                        <p class="text-muted"><strong>Discount:</strong> <i class="fa fa-cog yellow"></i> Parts <i class="fa fa-wrench yellow"></i> 
-						Service <i class="fa fa-circle-o yellow"></i> Tires</p>
-                        <p class="text-muted"> <i class="fa fa-phone yellow"></i> 1-418-661-5683<br />
-						<i class="fa fa-map-marker yellow"></i> 266 Seigneuriale Quebec City QC G1C 3P5</p>
-						
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="http://www.gearheadcanada.com" target=_blank class="portfolio-link">
-                      
-                        <img src="img/sponsor/gearhead.jpg" class="img-responsive  center-block" alt="Gearhead Website">
-                    </a>
-                    <div class="portfolio-caption text-center">
-                        <h4>Gearhead Canada</h4>
-                        <p class="text-muted"><strong>Discount:</strong> <i class="fa fa-cog yellow"></i> Parts <i class="fa fa-wrench"></i> Service <i class="fa fa-circle-o yellow"></i> Tires</p>
-						<p class="text-muted"><i class="fa fa-phone yellow"></i> 1-613-828-9151<br />
-						 <i class="fa fa-map-marker yellow"></i> 306 Moodie Dr Ottawa ON  K2W 8G3</p>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 text-center">
+                  <h2 class="section-heading"><?php echo $lang['sponsors-title'] ?></h2>
+                  <h3 class="section-subheading text-muted"><?php echo $lang['sponsors-sub'] ?></h3>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-4 col-sm-6 portfolio-item center-block">
+                  <a href="http://www.enduroktm.com" class="portfolio-link" target=_blank>
+                    
+                      <img src="img/sponsor/enduro.jpg" class="img-responsive center-block" alt="Enduro website">
+                  </a>
+                  <div class="portfolio-caption text-center">
+                      <h4>Vespa Quebec/KTM Enduro</h4>
+                      <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong> <i class="fa fa-cog yellow"></i> <?php echo $lang['parts'] ?> <i class="fa fa-wrench yellow"></i> 
+          <?php echo $lang['service'] ?> <i class="fa fa-circle-o yellow"></i> <?php echo $lang['tires'] ?></p>
+                      <p class="text-muted"> <i class="fa fa-phone yellow"></i> 1-418-661-5683<br />
+          <i class="fa fa-map-marker yellow"></i> 266 Seigneuriale Quebec City QC G1C 3P5</p>
+          
+                  </div>
+              </div>
+              <div class="col-md-4 col-sm-6 portfolio-item">
+                  <a href="http://www.gearheadcanada.com" target=_blank class="portfolio-link">
+                    
+                      <img src="img/sponsor/gearhead.jpg" class="img-responsive  center-block" alt="Gearhead Website">
+                  </a>
+                  <div class="portfolio-caption text-center">
+                      <h4>Gearhead Canada</h4>
+                      <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong> <i class="fa fa-cog yellow"></i> <?php echo $lang['parts'] ?> <i class="fa fa-wrench"></i> <?php echo $lang['service'] ?> <i class="fa fa-circle-o yellow"></i> <?php echo $lang['tires'] ?></p>
+          <p class="text-muted"><i class="fa fa-phone yellow"></i> 1-613-828-9151<br />
+           <i class="fa fa-map-marker yellow"></i> 306 Moodie Dr Ottawa ON  K2W 8G3</p>
 
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="http://scootart.com/" target=_blank class="portfolio-link">
-                      
-                        <img src="img/sponsor/scootart.jpg" class="img-responsive center-block" alt="Scootart Website">
-                    </a>
-                    <div class="portfolio-caption text-center">
-                        <h4>Scootart</h4>
-                        <p class="text-muted"><strong>Discount:</strong> <i class="fa fa-cog yellow"></i> Parts <i class="fa fa-wrench"></i> Service <i class="fa fa-circle-o yellow"></i> Tires</p>
-						<p class="text-muted"><i class="fa fa-phone yellow"></i> 1-514-388-4888<br />
-						 <i class="fa fa-map-marker yellow"></i> 8359 rue St Laurent Mtl, QC H20 2M7</p>
+                  </div>
+              </div>
+              <div class="col-md-4 col-sm-6 portfolio-item">
+                  <a href="http://scootart.com/" target=_blank class="portfolio-link">
+                    
+                      <img src="img/sponsor/scootart.jpg" class="img-responsive center-block" alt="Scootart Website">
+                  </a>
+                  <div class="portfolio-caption text-center">
+                      <h4>Scootart</h4>
+                      <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong> <i class="fa fa-cog yellow"></i> <?php echo $lang['parts'] ?> <i class="fa fa-wrench"></i> <?php echo $lang['service'] ?> <i class="fa fa-circle-o yellow"></i> <?php echo $lang['tires'] ?></p>
+          <p class="text-muted"><i class="fa fa-phone yellow"></i> 1-514-388-4888<br />
+           <i class="fa fa-map-marker yellow"></i> 8359 rue St Laurent Mtl, QC H20 2M7</p>
 
-                    </div>
-                </div>
-			 <div class="row">
-				<div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="http://scootertuning.ca/en/" target=_blank class="portfolio-link">
-                      
-                        <img src="img/sponsor/scootertuning.jpg" class="img-responsive center-block" alt="Scooter Tuning Website">
-                    </a>
-                    <div class="portfolio-caption text-center">
-                        <h4>Scootertuning</h4>
-                        <p class="text-muted"><strong>Discount:</strong> <i class="fa fa-cog yellow"></i> Parts <i class="fa fa-circle-o yellow"></i> Tires (Use Code: VESPACLUB)</p>
-						<p class="text-muted"><i class="fa fa-phone yellow"></i> 1-866-770-1214<br />
-						 <i class="fa fa-map-marker yellow"></i> 202-438 boul Jacques-Cartier, Shannon QC G0A 4N0</p>
-
-                    </div>
-                </div>
-				<div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="http://www.vespahalifax.com/" target=_blank class="portfolio-link">
-                      
-                        <img src="img/sponsor/vespashalifax.jpg" class="img-responsive center-block" alt="Vespa Halifax Website">
-                    </a>
-                    <div class="portfolio-caption text-center">
-                        <h4>Vespa Halifax</h4>
-                        <p class="text-muted"><strong>Discount:</strong> <i class="fa fa-cog yellow"></i> Parts <i class="fa fa-wrench"></i> Service <i class="fa fa-circle-o yellow"></i> Tires</p>
-						<p class="text-muted"><i class="fa fa-phone yellow"></i> 1-902-404-3000<br />
-						 <i class="fa fa-map-marker yellow"></i> 224 Wyse Rd. Dartmouth NS B3A 1M9</p>
-                    </div>
-                </div>
-				<div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="https://www.tastea.ca" target=_blank class="portfolio-link">
-                      
-                        <img src="img/sponsor/tastea.jpg" class="img-responsive center-block" alt="Tastea Inc">
-                    </a>
-                    <div class="portfolio-caption text-center">
-                        <h4>Tastea Inc</h4>
-                        <p class="text-muted"><strong>Discount:</strong> 10% off all in store tea purchases.</p>
-						<p class="text-muted"><i class="fa fa-phone yellow"></i> (450) 332-0780<br />
-						 <i class="fa fa-map-marker yellow"></i> 1313 Ch Chambly, Longueuil, QC J4J 3X1</p>
-                    </div>
-                </div>
-				<div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="https://www.sparkplugcoffee.com" target=_blank class="portfolio-link">
-                      
-                        <img src="img/sponsor/sparkplug2.jpg" class="img-responsive center-block" alt="Sparkplug Coffee">
-                    </a>
-                    <div class="portfolio-caption text-center">
-                        <h4>Sparkplug Coffee</h4>
-                        <p class="text-muted"><strong>Discount:</strong> <a href="https://www.sparkplugcoffee.com/shop-coffee/vespa-club-of-canada-coffee" target=_blank>Click here for details.</a></p>
-						<p class="text-muted"><i class="fa fa-phone yellow"></i> (647) 479-2897<br />
-						 <i class="fa fa-map-marker yellow"></i> Toronto, ON M5A 1N1</p>						 
-                    </div>
-                </div>
-				<div class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="https://www.banffbyscooter.com" target=_blank class="portfolio-link">
-                      
-                        <img src="img/sponsor/banffscooter.jpg" class="img-responsive center-block" alt="Banff by Scooter">
-                    </a>
-                    <div class="portfolio-caption text-center">
-                        <h4>Scooter by Banff</h4>
-                        <p class="text-muted"><strong>Discount:</strong> <a href="mailto:admin@banffbyscooter.com" target=_blank>Click here for details.</a></p>
-						<p class="text-muted"><i class="fa fa-phone yellow"></i> (403) 612-0311<br />
-						 <i class="fa fa-map-marker yellow"></i> 600 Banff Avenue, Banff, Alberta  T1L 1H8</p>						 
-                    </div>
-                </div>
-            </div>
+                  </div>
+              </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 portfolio-item">
+        <a href="http://scootertuning.ca/en/" target=_blank class="portfolio-link">
+          <img src="img/sponsor/scootertuning.jpg" class="img-responsive center-block" alt="Scooter Tuning Website">
+        </a>
+        <div class="portfolio-caption text-center">
+          <h4>Scootertuning</h4>
+          <p class="text-muted">
+            <strong><?php echo $lang['discount'] ?></strong> 
+            <i class="fa fa-cog yellow"></i> <?php echo $lang['parts'] ?> 
+            <i class="fa fa-circle-o yellow"></i> <?php echo $lang['tires'] ?> (<?php echo $lang['use-code'] ?>: VESPACLUB)
+          </p>
+          <p class="text-muted">
+            <i class="fa fa-phone yellow"></i> 1-866-770-1214<br />
+            <i class="fa fa-map-marker yellow"></i> 202-438 boul Jacques-Cartier, Shannon QC G0A 4N0
+          </p>
         </div>
+      </div>
+      <div class="col-md-4 col-sm-6 portfolio-item">
+        <a href="http://www.vespahalifax.com/" target=_blank class="portfolio-link">
+            <img src="img/sponsor/vespashalifax.jpg" class="img-responsive center-block" alt="Vespa Halifax Website">
+        </a>
+        <div class="portfolio-caption text-center">
+          <h4>Vespa Halifax</h4>
+          <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong> <i class="fa fa-cog yellow"></i> <?php echo $lang['parts'] ?> <i class="fa fa-wrench"></i> <?php echo $lang['service'] ?> <i class="fa fa-circle-o yellow"></i> <?php echo $lang['tires'] ?></p>
+          <p class="text-muted"><i class="fa fa-phone yellow"></i> 1-902-404-3000<br />
+          <i class="fa fa-map-marker yellow"></i> 224 Wyse Rd. Dartmouth NS B3A 1M9</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 portfolio-item">
+                  <a href="https://www.tastea.ca" target=_blank class="portfolio-link">
+                    
+                      <img src="img/sponsor/tastea.jpg" class="img-responsive center-block" alt="Tastea Inc">
+                  </a>
+                  <div class="portfolio-caption text-center">
+                      <h4>Tastea Inc</h4>
+                      <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong><?php echo $lang['tastee-discount'] ?></p>
+          <p class="text-muted"><i class="fa fa-phone yellow"></i> (450) 332-0780<br />
+           <i class="fa fa-map-marker yellow"></i> 1313 Ch Chambly, Longueuil, QC J4J 3X1</p>
+                  </div>
+              </div>
+      <div class="col-md-4 col-sm-6 portfolio-item">
+                  <a href="https://www.sparkplugcoffee.com" target=_blank class="portfolio-link">
+                    
+                      <img src="img/sponsor/sparkplug2.jpg" class="img-responsive center-block" alt="Sparkplug Coffee">
+                  </a>
+                  <div class="portfolio-caption text-center">
+                      <h4>Sparkplug Coffee</h4>
+                      <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong> <a href="https://www.sparkplugcoffee.com/shop-coffee/vespa-club-of-canada-coffee" target=_blank><?php echo $lang['click-details'] ?></a></p>
+          <p class="text-muted"><i class="fa fa-phone yellow"></i> (647) 479-2897<br />
+           <i class="fa fa-map-marker yellow"></i> Toronto, ON M5A 1N1</p>						 
+                  </div>
+              </div>
+          </div>
+      </div>
     </section>
 
     <!-- Services Section -->
@@ -509,16 +459,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Shop</h2>
-                    <h3 class="section-subheading text-muted">All payments processed through Pay Pal.</h3>
+                    <h2 class="section-heading"><?php echo $lang['shop-title'] ?></h2>
+                    <h3 class="section-subheading text-muted"><?php echo $lang['shop-sub'] ?></h3>
                 </div>
             </div>
             <div class="row text-center">
    
                 <div class="col-sm-4">
                     <img src="img/shops/t-shirt2017.png" class="img-responsive center-block" alt="Shirt is Red with dark blue trim at neck and arms. Embroidered on left side of chest is the club's logo.  On the arm is embroidered the outline of a maple leaf in dark blue thread.">
-                    <h4 class="service-heading">New Member's shirt</h4>
-                    <p class="text-muted">$25 CAD</p>
+                    <h4 class="service-heading"><?php echo $lang['shop1'] ?></h4>
+                    <p class="text-muted"><?php echo $lang['dollar25'] ?> CAD</p>
 					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
@@ -529,15 +479,15 @@
 						<input type="hidden" name="currency_code" value="CAD">
 						<input type="hidden" name="add" value="1">
 						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-						<p class="text-muted">Size
+						<p class="text-muted"><?php echo $lang['size'] ?>
 						<input type="hidden" name="on0" value="Sizes" class="text-muted">
 							<select name="os0">
 								<!--<option value="Men's XL">XL</option>-->
-								<option value="XXXL">XXXL</option>
-								<option value="Extra Large">Extra Large</option>
-								<option value="Large">Large</option>
-								<option value="Medium">Medium</option>
-								<option value="Small">Small</option>
+								<option value="XXXL"><?php echo $lang['XXXL'] ?></option>
+								<option value="Extra Large"><?php echo $lang['XL'] ?></option>
+								<option value="Large"><?php echo $lang['L'] ?></option>
+								<option value="Medium"><?php echo $lang['medium'] ?></option>
+								<option value="Small"><?php echo $lang['small'] ?></option>
 							</select> 
 						<input type="hidden" name="currency_code" value="CAD">
 						<!-- --><input type="hidden" name="option_select0" value="XXXL">
@@ -558,8 +508,8 @@
                 </div>
                 <div class="col-sm-4">
                     <img src="img/shops/t-shirt.png" class="img-responsive center-block" alt="Vespa Vintage T-shirt.  Shirt is black. The words 'Vespa Club of Canada' written in pink on the front.">
-                    <h4 class="service-heading">Vespa Club of Canada Vintage Tee (men)</h4>
-                    <p class="text-muted">$5 CAD</p>
+                    <h4 class="service-heading"><?php echo $lang['shop2'] ?></h4>
+                    <p class="text-muted"><?php echo $lang['dollar5'] ?> CAD</p>
 					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
@@ -570,12 +520,12 @@
 						<input type="hidden" name="currency_code" value="CAD">
 						<input type="hidden" name="add" value="1">
 						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-						<p class="text-muted">Size
+						<p class="text-muted"><?php echo $lang['size'] ?>
 						<input type="hidden" name="on0" value="Sizes" class="text-muted">
 							<select name="os0">
 								<!--<option value="Men's XL">XL</option>
 								<option value="Men's XXL">XXL</option>-->
-								<option value="Mens's Medium">Medium</option>
+								<option value="Mens's Medium"><?php echo $lang['medium'] ?></option>
 							</select> 
 						<input type="hidden" name="currency_code" value="CAD">
 						<!--<input type="hidden" name="option_select0" value="Men's XL">
@@ -590,8 +540,8 @@
                 </div>
 				<div class="col-sm-4 text-center">
                     <img src="img/shops/t-shirt.png" class="img-responsive center-block" alt="Vespa Vintage T-shirt.  Shirt is black. The words 'Vespa Club of Canada' written in pink on the front.">
-                    <h4 class="service-heading">Vespa Club of Canada Vintage Tee (women)</h4>
-                    <p class="text-muted">$5 CAD</p>
+                    <h4 class="service-heading"><? echo $lang['shop3'] ?></h4>
+                    <p class="text-muted"><?php echo $lang['dollar5'] ?> CAD</p>
 					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
@@ -602,10 +552,10 @@
 						<input type="hidden" name="currency_code" value="CAD">
 						<input type="hidden" name="add" value="1">
 						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-						<p class="text-muted">Size<input type="hidden" name="on0" value="Sizes" class="text-muted">
+						<p class="text-muted"><?php echo $lang['size'] ?><input type="hidden" name="on0" value="Sizes" class="text-muted">
 							<select name="os0">
-								<option value="Women's Small">Small</option>
-								<option value="Women's Medium">Medium</option>
+								<option value="Women's Small"><?php echo $lang['small'] ?></option>
+								<option value="Women's Medium"><?php echo $lang['medium'] ?></option>
 							</select> 
 						<input type="hidden" name="currency_code" value="CAD">
 
@@ -625,9 +575,9 @@
 				<div class="col-sm-4 text-center">					
                     <img src="img/shops/rally.png" class="img-responsive center-block" alt="VCoC Rally Badge Large: The words 'Vespa Club of Canada' written in white around the round blue badge. In the center is an image of a scooter rider over a red maple leaf.">
                     
-					<h4 class="service-heading">Vespa Club of Canada Large Badge</h4>					
-                    <p class="text-muted">$15 CAD</p>
-					<p class="text-muted">Size: 8" Colour: Blue</p>
+					<h4 class="service-heading"><?php echo $lang['shop4'] ?> </h4>					
+                    <p class="text-muted"><?php echo $lang['dollar15'] ?> CAD</p>
+					<p class="text-muted"><?php echo $lang['size'] ?>: 8" Colour: Blue</p>
                     <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
@@ -646,9 +596,9 @@
 				
 				<div class="col-sm-4 text-center">
                     <img src="img/shops/VCoc_small.png" class="img-responsive center-block" alt="VCoC Rally Badge Small: The words 'Vespa Club of Canada' written in white around the round black badge. In the center is an image of a scooter rider over a red maple leaf.">
-                    <h4 class="service-heading">Vespa Club of Canada Small Badge</h4>
-                    <p class="text-muted">$5 CAD</p>
-					<p class="text-muted">Size: 3.5" Colour: Black</p>				
+                    <h4 class="service-heading"><?php echo $lang['shop5'] ?></h4>
+                    <p class="text-muted"><?php echo $lang['dollar5'] ?> CAD</p>
+					<p class="text-muted"><?php echo $lang['size'] ?>: 3.5" Colour: Black</p>				
                     <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
@@ -666,8 +616,8 @@
                 </div>  
 				<div class="col-sm-4 text-center">
                     <img src="img/shops/vespa70.png" class="img-responsive center-block" alt="Vespa 70 years button and decal: The word 'Vespa' with the date 1946 - 2016 and a large 70 written in white over a red maple leaf with a green background.">
-                    <h4 class="service-heading">Vespa 70 years button or a decal</h4>
-                    <p class="text-muted">$2 CAD</p>
+                    <h4 class="service-heading"><?php echo $lang['shop6'] ?></h4>
+                    <p class="text-muted"><?php echo $lang['dollar2'] ?> CAD</p>
 			
 					
 					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
@@ -680,11 +630,11 @@
 						<input type="hidden" name="currency_code" value="CAD">
 						<input type="hidden" name="add" value="1">
 						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-						<p class="text-muted">Options<input type="hidden" name="on0" value="Sizes" class="text-muted">
+						<p class="text-muted"><?php echo $lang['options'] ?><input type="hidden" name="on0" value="Sizes" class="text-muted">
 							<select name="os0">
-								<option value='Button large'>Button 3"</option>
-								<option value='Button small'>Button 1.75"</option>
-								<option value='Decal'>Decal 3"</option>
+								<option value='Button large'><?php echo $lang['button'] ?> 3<?php echo $lang['inch'] ?></option>
+								<option value='Button small'><?php echo $lang['button'] ?> 1.75<?php echo $lang['inch'] ?></option>
+								<option value='Decal'><?php echo $lang['decal'] ?> 3<?php echo $lang['inch'] ?></option>
 							</select> 
 						<input type="hidden" name="currency_code" value="CAD">
 						<input type="hidden" name="option_select0" value="Button large">
@@ -704,9 +654,9 @@
 			<div class="row text-center">
 				<div class="col-sm-4 text-center">
                     <img src="img/shops/banner.png" class="img-responsive center-block" alt="VCOC banner styled like the Canadian flag with red bars on end and the words 'Vespa Club of Canada' written arcross a red maple leaf.">
-                    <h4 class="service-heading">Vespa Club of Canada Legshield Banner</h4>
-                    <p class="text-muted">$25 CAD</p>
-					<p class="text-muted"><b>Member's Only Item</b>. Size: 26" x 8"</p>				
+                    <h4 class="service-heading"><?php echo $lang['shop6'] ?></h4>
+                    <p class="text-muted"><?php echo $lang['dollar25'] ?> CAD</p>
+					<p class="text-muted"><b><?php echo $lang['shop6des'] ?></b> <?php echo $lang['size'] ?>: 26<?php echo $lang['inch'] ?> x 8<?php echo $lang['inch'] ?></p>				
                     <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
@@ -725,9 +675,9 @@
 				<div class="col-sm-4 col-sm-offset-4 text-center">					
                     <img src="img/shops/neck.png" class="img-responsive center-block" alt="Vespa Club of Canada Neck Warmer: Red in colour with the Vespa Club of Canada logo as a repeated pattern in darker red.">
                     
-					<h4 class="service-heading">Vespa Club of Canada Neck Warmer</h4>					
-                    <p class="text-muted">$20 CAD</p>
-					<p class="text-muted">Size fits all.</p>
+					<h4 class="service-heading"><?php echo $lang['shop7'] ?></h4>					
+                    <p class="text-muted"><?php echo $lang['dollar20'] ?> CAD</p>
+					<p class="text-muted"><?php echo $lang['onesize'] ?></p>
                     <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
@@ -754,31 +704,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Join Vespa Club of Canada</h2>
-                    <h3 class="section-subheading text-muted">Be part of Canada’s national club that’s been in existence for over 20 years dedicated to the preservation of the Vespa scooter.</h3>
+                    <h2 class="section-heading"><?php echo $lang['join-title'] ?></h2>
+                    <h3 class="section-subheading text-muted"><?php echo $lang['join-sub'] ?></h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-4 text-center">
-					<img src="img/keepcalm.png" class="img-responsive img-circle center-block" alt="Keep Calm and Drive a Vespa">
-					<h4>Why Join?</h4>
-					<p class="text-muted text-left">Exchange ideas, attend rallies, share opinions on various Vespa models, their parts, accessories and join a community of like minded Vespa riders.</p>
-					<p class="text-muted text-left">The Vespa Club of Canada is a non-profit club and proud to be a member in good standing with Vespa World Club (previously known as the Federation International des Vespa Clubs or F.I.V.).</p>
+                  <img src="img/keepcalm.png" class="img-responsive img-circle center-block" alt="Keep Calm and Drive a Vespa">
+                  <?php echo $lang['join-why'] ?>
                 </div>
                 <div class="col-sm-4 text-center">
-					<img src="img/cog.png" class="img-responsive img-circle center-block" alt="VCoC Member's Badge">
-					<h4>What is included?</h4>
-					<p class="text-muted text-left">You will recieve a membership card, club patch, club decal and discounts to 
-					Vespa-friendly shops and parts suppliers across Canada.</p>
-					<p class="text-muted text-left">As a memmber you can attend the Vespa World Club’s annual event <i>Vespa World Days</i> under
-					the Vespa Club of Canada banner*. Various cities host this event and they are as follows: St.
-					Tropez France 2016; Celle Germany 2017; Belfast Ireland 2018 (TBC)</p>
+                  <img src="img/cog.png" class="img-responsive img-circle center-block" alt="VCoC Member's Badge">
+                  <?php echo $lang['join-included'] ?>
                 </div>
                 <div class="col-sm-4 text-center">
-					<img src="img/club.png" class="img-responsive img-circle center-block" alt="Keep Calm and Drive a Vespa">
-					<h4>How to join?</h4>
-					<p class="text-muted text-left">Simply click the button below. Your membership renewal notices will be billed annually.</p>
-					<p class="text-muted">$21 CAD</p>
+                  <img src="img/club.png" class="img-responsive img-circle center-block" alt="Keep Calm and Drive a Vespa">
+                  <?php echo $lang['join-how'] ?>				
+                  <p class="text-muted"><?php echo $lang['dollar21'] ?> CAD</p>
 					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
@@ -796,7 +738,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text-center">
-                    <p class="small text-muted">* Event registration is payable by the member but the VCOC does the registration.</p>
+                    <p class="small text-muted"><?php echo $lang['join-included-foot'] ?></p>
                 </div>
             </div>
         </div>
@@ -809,8 +751,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">And we will contact you.</h3>
+                    <h2 class="section-heading"><?php echo $lang['contact-title'] ?></h2>
+                    <h3 class="section-subheading text-muted"><?php echo $lang['contact-sub'] ?></h3>
                 </div>
             </div>
             <div class="row">
@@ -819,28 +761,28 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                    <input type="text" class="form-control" placeholder="<?php echo $lang['contact-name'] ?> *" id="name" required data-validation-required-message="<?php echo $lang['contact-name-error'] ?>">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <input type="email" class="form-control" placeholder="<?php echo $lang['contact-email'] ?> *" id="email" required data-validation-required-message="<?php echo $lang['contact-email-error'] ?>">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Your Phone " id="phone" >
+                                    <input type="tel" class="form-control" placeholder="<?php echo $lang['contact-phone'] ?> " id="phone" >
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <textarea class="form-control" placeholder="<?php echo $lang['contact-message'] ?> *" id="message" required data-validation-required-message="<?php echo $lang['contact-message'] ?>"></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Send Message</button>
+                                <button type="submit" class="btn btn-xl"><?php echo $lang['send'] ?></button>
                             </div>
                         </div>
                     </form>
@@ -853,7 +795,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <span class="copyright">&copy;Copyright  Vespa Club of Canada 2017</span>
+                    <span class="copyright">&copy;<?php echo $lang['copyright'] ?>  <?php echo $lang['title'] ?> 2016 - <?php echo date("Y") ?></span>
                 </div>
                 <div class="col-md-4">
                     <ul class="list-inline social-buttons">
@@ -864,7 +806,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                   <span class="copyright">Designed and Developed by <a href="http://www.rockycoastcreative.ca">Rocky Coast Creative</a></span>
+                   <span class="copyright"><?php echo $lang['credit'] ?> <a href="http://www.rockycoastcreative.ca">Rocky Coast Creative</a></span>
                 </div>
             </div>
         </div>

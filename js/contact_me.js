@@ -1,6 +1,6 @@
 $(function() {
 
-    $("input,textarea").jqBootstrapValidation({
+    $("#contact input,#contact textarea").jqBootstrapValidation({
         preventSubmit: true,
         submitError: function($form, event, errors) {
             // additional error messages or events
@@ -18,7 +18,7 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                url: "../mail/contact_me.php",
+                url: "mail/contact_me.php",
                 type: "POST",
                 data: {
                     name: name,
