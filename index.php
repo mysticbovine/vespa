@@ -1,20 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
 	session_start();
 	require_once("index.conf");
 	$language = new Language();
 	$lang = $language->getLanguage(@$_POST['lang']);
+  
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+  
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The Vespa Club of Canada is a nonprofit club dedicated to the preservation of the Vespa scooter and proud to be a member of the Vespa World Club.">
+    <meta name="description" content="<?php echo $lang['meta'] ?>">
     <meta name="author" content="Rocky Coast Creative www.rockycoastcreative.ca">
 
-    <title>Vespa Club of Canada</title>
+    <title><?php echo $lang['title'] ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -56,10 +61,11 @@
 
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index <?php echo $lang['current'] ?>">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
+        
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -69,39 +75,52 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Vespa Club of Canada <span style="font-size:.75em">&#127809;</span></a>
+                <a class="navbar-brand page-scroll" href="#page-top"><?php echo $lang['title'] ?> <span style="font-size:.75em">&#127809;</span></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+              <form name="language" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" class="language">
+                <p><?php echo $lang['select-language']; ?></p>
+                <div class="icons">
+                  <div class="icon">
+                    <input type="radio" name="lang" value="en" id="en" onchange = "document.language.submit()"> 
+                    <label for="en"> <?php echo $lang['en']; ?></label>
+                  </div>
+                  <div class="icon">
+                    <input type="radio" name="lang" value="fr" id="fr" onchange = "document.language.submit()">
+                    <label for="fr"> <?php echo $lang['fr']; ?></label>
+                  </div>
+                </div>
+              </form>
+                <ul class="nav navbar-nav">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
 					<li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#about"><?php echo $lang['about'] ?></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#history">History</a>
+                        <a class="page-scroll" href="#history"><?php echo $lang['history'] ?></a>
                     </li>
                     <li class="">
-                        <a class="page-scroll" href="#gallery">Gallery</a>
+                        <a class="page-scroll" href="#gallery"><?php echo $lang['gallery'] ?></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#clubs">Local Clubs</a>
+                        <a class="page-scroll" href="#clubs"><?php echo $lang['clubs'] ?></a>
                     </li>
                     
                     <li>
-                        <a class="page-scroll" href="#sponsors">Sponsors</a>
+                        <a class="page-scroll" href="#sponsors"><?php echo $lang['sponsors'] ?></a>
                     </li>
 					<li>
-                        <a class="page-scroll" href="#shop">Shop</a>
+                        <a class="page-scroll" href="#shop"><?php echo $lang['shop'] ?></a>
                     </li>
 					<li>
-                        <a class="page-scroll" href="#joinus">Join Us</a>
+                        <a class="page-scroll" href="#joinus"><?php echo $lang['join'] ?></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact Us</a>
+                        <a class="page-scroll" href="#contact"><?php echo $lang['contact'] ?></a>
                     </li>
                 </ul>
             </div>
@@ -123,7 +142,15 @@
     <section id="about"  class="bg-light-gray">
       <div class="container">
         <div class="row">
-          <?php echo $lang['about'] ?>
+          <div class="col-lg-12">
+            <h2 class="section-heading text-center">
+              <?php echo $lang['about-title'] ?>
+            </h2>
+            <h3 class="section-subheading text-muted text-center">
+              <?php echo $lang['about-subtitle'] ?>
+            </h3>
+            <?php echo $lang['about-body'] ?>
+          </div>
         </div>
       </div>
     </section>
@@ -179,7 +206,7 @@
                                     <h4 class="subheading"><?php echo $lang['t1946'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted"><?php echo $lang['t1946'] ?></p>
+                                    <p class="text-muted"><?php echo $lang['b1946'] ?></p>
                                 </div>
                             </div>
                         </li>
@@ -276,7 +303,7 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>1990's</h4>
+                                    <h4><?php echo $lang['y1990'] ?></h4>
                                     <h4 class="subheading"><?php echo $lang['t1990'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
@@ -304,7 +331,7 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>Today</h4>
+                                    <h4><?php echo $lang['today'] ?></h4>
                                     <h4 class="subheading"><?php echo $lang['ttoday'] ?></h4>
                                 </div>
                                 <div class="timeline-body">
@@ -328,7 +355,7 @@
 			<div class="col-lg-12 text-center">
 				<h2 class="section-heading"><?php echo $lang['gallery-title'] ?></h2>
 				<h3 class="section-subheading text-muted"><?php echo $lang['gallery-sub'] ?></h3>
-				<!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/0bce015c480b5bc293f1f89d42bb8d80.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
+				<!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="https://cdn.lightwidget.com/widgets/c86e30a7a82656cc93fe9440aad1063a.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
 			</div>
 		</div>
 	</section>
@@ -367,7 +394,8 @@
                       <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong> <i class="fa fa-cog yellow"></i> <?php echo $lang['parts'] ?> <i class="fa fa-wrench yellow"></i> 
           <?php echo $lang['service'] ?> <i class="fa fa-circle-o yellow"></i> <?php echo $lang['tires'] ?></p>
                       <p class="text-muted"> <i class="fa fa-phone yellow"></i> 1-418-661-5683<br />
-          <i class="fa fa-map-marker yellow"></i> 266 Seigneuriale Quebec City QC G1C 3P5</p>
+          <i class="fa fa-map-marker yellow"></i> 266 Seigneuriale, ville de
+Québec, QC G1C 3P5</p>
           
                   </div>
               </div>
@@ -393,13 +421,14 @@
                       <h4>Scootart</h4>
                       <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong> <i class="fa fa-cog yellow"></i> <?php echo $lang['parts'] ?> <i class="fa fa-wrench"></i> <?php echo $lang['service'] ?> <i class="fa fa-circle-o yellow"></i> <?php echo $lang['tires'] ?></p>
           <p class="text-muted"><i class="fa fa-phone yellow"></i> 1-514-388-4888<br />
-           <i class="fa fa-map-marker yellow"></i> 8359 rue St Laurent Mtl, QC H20 2M7</p>
+           <i class="fa fa-map-marker yellow"></i> 7912 Boulevard Provencher, Saint Leonard, QC H1R 2Y5</p>
+
 
                   </div>
               </div>
     <div class="row">
       <div class="col-md-4 col-sm-6 portfolio-item">
-        <a href="http://scootertuning.ca/en/" target=_blank class="portfolio-link">
+        <a href="https://www.scootertuning.ca" target=_blank class="portfolio-link">
           <img src="img/sponsor/scootertuning.jpg" class="img-responsive center-block" alt="Scooter Tuning Website">
         </a>
         <div class="portfolio-caption text-center">
@@ -415,42 +444,41 @@
           </p>
         </div>
       </div>
+      
       <div class="col-md-4 col-sm-6 portfolio-item">
-        <a href="http://www.vespahalifax.com/" target=_blank class="portfolio-link">
-            <img src="img/sponsor/vespashalifax.jpg" class="img-responsive center-block" alt="Vespa Halifax Website">
+        <a href="https://www.tastea.ca" target=_blank class="portfolio-link">
+          <img src="img/sponsor/tastea.jpg" class="img-responsive center-block" alt="Tastea Inc">
         </a>
         <div class="portfolio-caption text-center">
-          <h4>Vespa Halifax</h4>
-          <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong> <i class="fa fa-cog yellow"></i> <?php echo $lang['parts'] ?> <i class="fa fa-wrench"></i> <?php echo $lang['service'] ?> <i class="fa fa-circle-o yellow"></i> <?php echo $lang['tires'] ?></p>
-          <p class="text-muted"><i class="fa fa-phone yellow"></i> 1-902-404-3000<br />
-          <i class="fa fa-map-marker yellow"></i> 224 Wyse Rd. Dartmouth NS B3A 1M9</p>
+          <h4>Tastea Inc</h4>
+          <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong><?php echo $lang['tastee-discount'] ?></p>
+          <p class="text-muted"><i class="fa fa-phone yellow"></i> (450) 332-0780<br />
+          <i class="fa fa-map-marker yellow"></i> 1313 Ch Chambly, Longueuil, QC J4J 3X1</p>
         </div>
       </div>
       <div class="col-md-4 col-sm-6 portfolio-item">
-                  <a href="https://www.tastea.ca" target=_blank class="portfolio-link">
-                    
-                      <img src="img/sponsor/tastea.jpg" class="img-responsive center-block" alt="Tastea Inc">
-                  </a>
-                  <div class="portfolio-caption text-center">
-                      <h4>Tastea Inc</h4>
-                      <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong><?php echo $lang['tastee-discount'] ?></p>
-          <p class="text-muted"><i class="fa fa-phone yellow"></i> (450) 332-0780<br />
-           <i class="fa fa-map-marker yellow"></i> 1313 Ch Chambly, Longueuil, QC J4J 3X1</p>
-                  </div>
-              </div>
-      <div class="col-md-4 col-sm-6 portfolio-item">
-                  <a href="https://www.sparkplugcoffee.com" target=_blank class="portfolio-link">
-                    
-                      <img src="img/sponsor/sparkplug2.jpg" class="img-responsive center-block" alt="Sparkplug Coffee">
-                  </a>
-                  <div class="portfolio-caption text-center">
-                      <h4>Sparkplug Coffee</h4>
-                      <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong> <a href="https://www.sparkplugcoffee.com/shop-coffee/vespa-club-of-canada-coffee" target=_blank><?php echo $lang['click-details'] ?></a></p>
+        <a href="https://www.sparkplugcoffee.com" target=_blank class="portfolio-link">
+          <img src="img/sponsor/sparkplug2.jpg" class="img-responsive center-block" alt="Sparkplug Coffee">
+        </a>
+        <div class="portfolio-caption text-center">
+          <h4>Sparkplug Coffee</h4>
+          <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong> <a href="https://www.sparkplugcoffee.com/shop-coffee/vespa-club-of-canada-coffee" target=_blank><?php echo $lang['click-details'] ?></a></p>
           <p class="text-muted"><i class="fa fa-phone yellow"></i> (647) 479-2897<br />
-           <i class="fa fa-map-marker yellow"></i> Toronto, ON M5A 1N1</p>						 
-                  </div>
-              </div>
-          </div>
+          <i class="fa fa-map-marker yellow"></i> Toronto, ON M5A 1N1</p>						 
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 portfolio-item">
+        <a href="https://www.banffbyscooter.com" target=_blank class="portfolio-link">
+            <img src="img/sponsor/banffscooter.jpg" class="img-responsive center-block" alt="BanffbyScooter">
+        </a>
+        <div class="portfolio-caption text-center">
+          <h4>BanffbyScooter</h4>
+          <p class="text-muted"><strong><?php echo $lang['discount'] ?></strong> <?php echo $lang['banff-discount'] ?></p>
+          <p class="text-muted"><i class="fa fa-phone yellow"></i> (587) 327-4111<br />
+          <i class="fa fa-map-marker yellow"></i> 600 Banff Avenue, Banff, Alberta  T1L 1H8</p>						 
+        </div>
+      </div>
+    </div>
       </div>
     </section>
 
@@ -463,113 +491,152 @@
                     <h3 class="section-subheading text-muted"><?php echo $lang['shop-sub'] ?></h3>
                 </div>
             </div>
-            <div class="row text-center">
+      <div class="row text-center">
    
-                <div class="col-sm-4">
-                    <img src="img/shops/t-shirt2017.png" class="img-responsive center-block" alt="Shirt is Red with dark blue trim at neck and arms. Embroidered on left side of chest is the club's logo.  On the arm is embroidered the outline of a maple leaf in dark blue thread.">
-                    <h4 class="service-heading"><?php echo $lang['shop1'] ?></h4>
-                    <p class="text-muted"><?php echo $lang['dollar25'] ?> CAD</p>
-					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+        <div class="col-sm-4">
+          <img src="img/shops/t-shirt2017.png" class="img-responsive center-block" alt="Shirt is Red with dark blue trim at neck and arms. Embroidered on left side of chest is the club's logo.  On the arm is embroidered the outline of a maple leaf in dark blue thread.">
+          <h4 class="service-heading"><?php echo $lang['shop1'] ?></h4>
+          <p class="text-muted"><?php echo $lang['dollar25'] ?> CAD</p>
+          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="business" value="membership@vespaclubofcanada.com">
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="item_name" value="New Member's Shirt">
+            <input type="hidden" name="button_subtype" value="products">
+            <input type="hidden" name="no_note" value="0">
+            <input type="hidden" name="currency_code" value="CAD">
+            <input type="hidden" name="add" value="1">
+            <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
+            <p class="text-muted"><?php echo $lang['size'] ?>
+            <input type="hidden" name="on0" value="Sizes" class="text-muted">
+              <select name="os0">
+              <option value="Extra Large"><?php echo $lang['XL'] ?></option>
+                <!--<option value="Men's XL">XL</option>
+                <option value="XXXL"><?php #echo $lang['XXXL'] ?></option>
+                
+                <option value="Large"><?php #echo $lang['L'] ?></option>
+                <option value="Medium"><?php #echo $lang['medium'] ?></option>
+                <option value="Small"><?php #echo $lang['small'] ?></option>-->
+              </select> 
+            <input type="hidden" name="currency_code" value="CAD">
+            <input type="hidden" name="option_select1" value="Extra Large">
+            <input type="hidden" name="option_amount1" value="25.00">
+            <!--
+            <input type="hidden" name="option_select0" value="XXXL">
+            <input type="hidden" name="option_amount0" value="25.00">
+            <input type="hidden" name="option_select1" value="Extra Large">
+            <input type="hidden" name="option_amount1" value="25.00">
+            <input type="hidden" name="option_select2" value="Large">
+            <input type="hidden" name="option_amount2" value="25.00">
+            <input type="hidden" name="option_select3" value="Medium">
+            <input type="hidden" name="option_amount3" value="25.00">
+            <input type="hidden" name="option_select4" value="Small">
+            <input type="hidden" name="option_amount4" value="25.00">
+            -->
+
+            <input type="hidden" name="option_index" value="0"></p>
+            <input type="image" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/scr/pixel.gif" width="1" height="1">
+          </form>
+        </div>
+        
+        <div class="col-sm-4 text-center hidden">
+          <img src="img/shops/t-shirt.png" class="img-responsive center-block" alt="Vespa Vintage T-shirt.  Shirt is black. The words 'Vespa Club of Canada' written in pink on the front.">
+          <h4 class="service-heading"><?php echo $lang['shop3'] ?></h4>
+          <p class="text-muted"><?php echo $lang['dollar5'] ?> CAD</p>
+          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="business" value="membership@vespaclubofcanada.com">
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="item_name" value="Vintage VCoC T's">
+            <input type="hidden" name="button_subtype" value="products">
+            <input type="hidden" name="no_note" value="0">
+            <input type="hidden" name="currency_code" value="CAD">
+            <input type="hidden" name="add" value="1">
+            <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
+            <p class="text-muted"><?php echo $lang['size'] ?>
+            <input type="hidden" name="on0" value="Sizes" class="text-muted">
+              <select name="os0">
+                <option value="Women's Small"><?php echo $lang['small'] ?></option>
+                <option value="Women's Medium"><?php echo $lang['medium'] ?></option>
+              </select> 
+            <input type="hidden" name="currency_code" value="CAD">
+
+            <input type="hidden" name="option_select2" value="Women's Small">
+            <input type="hidden" name="option_amount2" value="5.00">
+            <input type="hidden" name="option_select3" value="Women's Medium">
+            <input type="hidden" name="option_amount3" value="5.00">
+            <input type="hidden" name="option_index" value="0"></p>
+            <input type="image" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/scr/pixel.gif" width="1" height="1">
+          </form>
+        </div>
+        <div class="col-sm-4 text-center">					
+          <img src="img/shops/neck.png" class="img-responsive center-block" alt="Vespa Club of Canada Neck Warmer: Red in colour with the Vespa Club of Canada logo as a repeated pattern in darker red.">
+                    
+					<h4 class="service-heading"><?php echo $lang['shop7'] ?></h4>					
+                    <p class="text-muted"><?php echo $lang['dollar20'] ?> CAD</p>
+					<p class="text-muted"><?php echo $lang['onesize'] ?></p>
+                    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
 						<input type="hidden" name="lc" value="US">
-						<input type="hidden" name="item_name" value="New Member's Shirt">
+						<input type="hidden" name="item_name" value="Vespa Club of Canada Neck Warmer">
+						<input type="hidden" name="amount" value="20.00">
+						<input type="hidden" name="currency_code" value="CAD">
 						<input type="hidden" name="button_subtype" value="products">
 						<input type="hidden" name="no_note" value="0">
-						<input type="hidden" name="currency_code" value="CAD">
 						<input type="hidden" name="add" value="1">
 						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-						<p class="text-muted"><?php echo $lang['size'] ?>
-						<input type="hidden" name="on0" value="Sizes" class="text-muted">
-							<select name="os0">
-								<!--<option value="Men's XL">XL</option>-->
-								<option value="XXXL"><?php echo $lang['XXXL'] ?></option>
-								<option value="Extra Large"><?php echo $lang['XL'] ?></option>
-								<option value="Large"><?php echo $lang['L'] ?></option>
-								<option value="Medium"><?php echo $lang['medium'] ?></option>
-								<option value="Small"><?php echo $lang['small'] ?></option>
-							</select> 
-						<input type="hidden" name="currency_code" value="CAD">
-						<!-- --><input type="hidden" name="option_select0" value="XXXL">
-						<input type="hidden" name="option_amount0" value="25.00">
-						<input type="hidden" name="option_select1" value="Extra Large">
-						<input type="hidden" name="option_amount1" value="25.00">
-						<input type="hidden" name="option_select2" value="Large">
-						<input type="hidden" name="option_amount2" value="25.00">
-						<input type="hidden" name="option_select3" value="Medium">
-						<input type="hidden" name="option_amount3" value="25.00">
-						<input type="hidden" name="option_select4" value="Small">
-						<input type="hidden" name="option_amount4" value="25.00">
-
-						<input type="hidden" name="option_index" value="0"></p>
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+						<input type="image" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/scr/pixel.gif" width="1" height="1">
 					</form>
-                </div>
-                <div class="col-sm-4">
-                    <img src="img/shops/t-shirt.png" class="img-responsive center-block" alt="Vespa Vintage T-shirt.  Shirt is black. The words 'Vespa Club of Canada' written in pink on the front.">
-                    <h4 class="service-heading"><?php echo $lang['shop2'] ?></h4>
-                    <p class="text-muted"><?php echo $lang['dollar5'] ?> CAD</p>
-					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-						<input type="hidden" name="cmd" value="_cart">
-						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
-						<input type="hidden" name="lc" value="US">
-						<input type="hidden" name="item_name" value="Vintage VCoC T's">
-						<input type="hidden" name="button_subtype" value="products">
-						<input type="hidden" name="no_note" value="0">
-						<input type="hidden" name="currency_code" value="CAD">
-						<input type="hidden" name="add" value="1">
-						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-						<p class="text-muted"><?php echo $lang['size'] ?>
-						<input type="hidden" name="on0" value="Sizes" class="text-muted">
-							<select name="os0">
-								<!--<option value="Men's XL">XL</option>
-								<option value="Men's XXL">XXL</option>-->
-								<option value="Mens's Medium"><?php echo $lang['medium'] ?></option>
-							</select> 
-						<input type="hidden" name="currency_code" value="CAD">
-						<!--<input type="hidden" name="option_select0" value="Men's XL">
-						<input type="hidden" name="option_amount0" value="10.00"> -->
-						<input type="hidden" name="option_select1" value="Mens's Medium">
-						<input type="hidden" name="option_amount1" value="5.00">
+        </div>
+        <div class="col-sm-4">
+          <img src="img/shops/logo-pin" class="img-responsive center-block" alt="Vespa Club of Canada Metal Pin">
+          <h4 class="service-heading"><?php echo $lang['shop9'] ?></h4>
+          <p class="text-muted"><?php echo $lang['shop9-des'] ?></p>
+          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="business" value="membership@vespaclubofcanada.com">
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="item_name" value="Metal Pin">
+            <input type="hidden" name="button_subtype" value="products">
+            <input type="hidden" name="no_note" value="0">
+            <input type="hidden" name="currency_code" value="CAD">
+            <input type="hidden" name="add" value="1">
+            <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
+            <p class="text-muted"><?php echo $lang['options'] ?>
+            <input type="hidden" name="on0" value="Options" class="text-muted">
+              <select name="os0">
+                  <option value="Canadian Member Pin"><?php echo $lang['cnd-member'] ?> - <?php echo $lang['cnd-member-dollar'] ?></option>
+                  <option value="US Member Pin"><?php echo $lang['us-member'] ?> - <?php echo $lang['us-member-dollar'] ?></option>
+                  <option value="International Member Pin"><?php echo $lang['int-member'] ?> -<?php echo $lang['int-member-dollar'] ?></option>
+                  <option value="Non Member Pin Canadian"><?php echo $lang['non-cnd-member'] ?> - <?php echo $lang['non-cnd-member-dollar'] ?></option>
+                  <option value="Non Member Pin US"><?php echo $lang['non-us-member'] ?> - <?php echo $lang['non-us-member-dollar'] ?></option>
+                  <option value="Non Member Pin International"><?php echo $lang['non-int-member'] ?> - <?php echo $lang['non-int-member-dollar'] ?></option>
+              </select> 
+            
+            <input type="hidden" name="currency_code" value="CAD">
+        
+            <input type="hidden" name="option_select1" value="Canadian Member Pin">
+            <input type="hidden" name="option_amount1" value="17.25">
+            <input type="hidden" name="option_select2" value="US Member Pin">
+            <input type="hidden" name="option_amount2" value="19.00">
+            <input type="hidden" name="option_select3" value="International Member Pin">
+            <input type="hidden" name="option_amount3" value="22.00">
+            <input type="hidden" name="option_select4" value="Non Member Pin Canadian">
+            <input type="hidden" name="option_amount4" value="42.25">
+            <input type="hidden" name="option_select5" value="Non Member Pin US">
+            <input type="hidden" name="option_amount5" value="44.00">
+            <input type="hidden" name="option_select6" value="Non Member Pin International">
+            <input type="hidden" name="option_amount6" value="47.00">
 
-						<input type="hidden" name="option_index" value="0"></p>
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</form>
-                </div>
-				<div class="col-sm-4 text-center">
-                    <img src="img/shops/t-shirt.png" class="img-responsive center-block" alt="Vespa Vintage T-shirt.  Shirt is black. The words 'Vespa Club of Canada' written in pink on the front.">
-                    <h4 class="service-heading"><? echo $lang['shop3'] ?></h4>
-                    <p class="text-muted"><?php echo $lang['dollar5'] ?> CAD</p>
-					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-						<input type="hidden" name="cmd" value="_cart">
-						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
-						<input type="hidden" name="lc" value="US">
-						<input type="hidden" name="item_name" value="Vintage VCoC T's">
-						<input type="hidden" name="button_subtype" value="products">
-						<input type="hidden" name="no_note" value="0">
-						<input type="hidden" name="currency_code" value="CAD">
-						<input type="hidden" name="add" value="1">
-						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-						<p class="text-muted"><?php echo $lang['size'] ?><input type="hidden" name="on0" value="Sizes" class="text-muted">
-							<select name="os0">
-								<option value="Women's Small"><?php echo $lang['small'] ?></option>
-								<option value="Women's Medium"><?php echo $lang['medium'] ?></option>
-							</select> 
-						<input type="hidden" name="currency_code" value="CAD">
-
-						<input type="hidden" name="option_select2" value="Women's Small">
-						<input type="hidden" name="option_amount2" value="5.00">
-						<input type="hidden" name="option_select3" value="Women's Medium">
-						<input type="hidden" name="option_amount3" value="5.00">
-						<input type="hidden" name="option_index" value="0"></p>
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</form>
-                </div>
-				
-				
+            <input type="hidden" name="option_index" value="0"></p>
+            <input type="image" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+            <img alt="" border="0" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/scr/pixel.gif" width="1" height="1">
+          </form>
+        </div>
 			</div>
 			<div class="row text-center">
 				<div class="col-sm-4 text-center">					
@@ -577,7 +644,7 @@
                     
 					<h4 class="service-heading"><?php echo $lang['shop4'] ?> </h4>					
                     <p class="text-muted"><?php echo $lang['dollar15'] ?> CAD</p>
-					<p class="text-muted"><?php echo $lang['size'] ?>: 8" Colour: Blue</p>
+					<p class="text-muted"><?php echo $lang['size'] ?>: 20 <?php echo $lang['inch'] ?> <?php echo $lang['blue'] ?></p>
                     <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
@@ -589,35 +656,16 @@
 						<input type="hidden" name="no_note" value="0">
 						<input type="hidden" name="add" value="1">
 						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+						<input type="image" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/scr/pixel.gif" width="1" height="1">
 					</form>
-                </div>
+        </div>
+				
 				
 				<div class="col-sm-4 text-center">
-                    <img src="img/shops/VCoc_small.png" class="img-responsive center-block" alt="VCoC Rally Badge Small: The words 'Vespa Club of Canada' written in white around the round black badge. In the center is an image of a scooter rider over a red maple leaf.">
-                    <h4 class="service-heading"><?php echo $lang['shop5'] ?></h4>
-                    <p class="text-muted"><?php echo $lang['dollar5'] ?> CAD</p>
-					<p class="text-muted"><?php echo $lang['size'] ?>: 3.5" Colour: Black</p>				
-                    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-						<input type="hidden" name="cmd" value="_cart">
-						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
-						<input type="hidden" name="lc" value="US">
-						<input type="hidden" name="item_name" value="Vespa Club of Canada Small Badge">
-						<input type="hidden" name="amount" value="5.00">
-						<input type="hidden" name="currency_code" value="CAD">
-						<input type="hidden" name="button_subtype" value="products">
-						<input type="hidden" name="no_note" value="0">
-						<input type="hidden" name="add" value="1">
-						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</form>
-                </div>  
-				<div class="col-sm-4 text-center">
-                    <img src="img/shops/vespa70.png" class="img-responsive center-block" alt="Vespa 70 years button and decal: The word 'Vespa' with the date 1946 - 2016 and a large 70 written in white over a red maple leaf with a green background.">
-                    <h4 class="service-heading"><?php echo $lang['shop6'] ?></h4>
-                    <p class="text-muted"><?php echo $lang['dollar2'] ?> CAD</p>
+          <img src="img/shops/vespa70.png" class="img-responsive center-block" alt="Vespa 70 years button and decal: The word 'Vespa' with the date 1946 - 2016 and a large 70 written in white over a red maple leaf with a green background.">
+          <h4 class="service-heading"><?php echo $lang['shop6'] ?></h4>
+          <p class="text-muted"><?php echo $lang['dollar2'] ?> CAD</p>
 			
 					
 					<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
@@ -634,30 +682,25 @@
 							<select name="os0">
 								<option value='Button large'><?php echo $lang['button'] ?> 3<?php echo $lang['inch'] ?></option>
 								<option value='Button small'><?php echo $lang['button'] ?> 1.75<?php echo $lang['inch'] ?></option>
-								<option value='Decal'><?php echo $lang['decal'] ?> 3<?php echo $lang['inch'] ?></option>
+							
 							</select> 
 						<input type="hidden" name="currency_code" value="CAD">
 						<input type="hidden" name="option_select0" value="Button large">
 						<input type="hidden" name="option_amount0" value="2.00">
 						<input type="hidden" name="option_select1" value="Button small">
 						<input type="hidden" name="option_amount1" value="2.00">
-						<input type="hidden" name="option_select2" value="Decal">
-						<input type="hidden" name="option_amount2" value="2.00">
 
 						<input type="hidden" name="option_index" value="0"></p>
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+						<input type="image" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/scr/pixel.gif" width="1" height="1">
 					</form>
-                </div>  
-			</div>
-			
-			<div class="row text-center">
-				<div class="col-sm-4 text-center">
-                    <img src="img/shops/banner.png" class="img-responsive center-block" alt="VCOC banner styled like the Canadian flag with red bars on end and the words 'Vespa Club of Canada' written arcross a red maple leaf.">
-                    <h4 class="service-heading"><?php echo $lang['shop6'] ?></h4>
-                    <p class="text-muted"><?php echo $lang['dollar25'] ?> CAD</p>
-					<p class="text-muted"><b><?php echo $lang['shop6des'] ?></b> <?php echo $lang['size'] ?>: 26<?php echo $lang['inch'] ?> x 8<?php echo $lang['inch'] ?></p>				
-                    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+        </div>
+        <div class="col-sm-4 text-center">
+          <img src="img/shops/banner.png" class="img-responsive center-block" alt="VCOC banner styled like the Canadian flag with red bars on end and the words 'Vespa Club of Canada' written across a red maple leaf.">
+          <h4 class="service-heading"><?php echo $lang['shop8'] ?></h4>
+          <p class="text-muted"><?php echo $lang['dollar25'] ?> CAD</p>
+					<p class="text-muted"><b><?php echo $lang['shop8des'] ?></b> <?php echo $lang['size'] ?>: 66<?php echo $lang['inch'] ?> x 20<?php echo $lang['inch'] ?></p>				
+          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
 						<input type="hidden" name="cmd" value="_cart">
 						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
 						<input type="hidden" name="lc" value="US">
@@ -668,35 +711,13 @@
 						<input type="hidden" name="no_note" value="0">
 						<input type="hidden" name="add" value="1">
 						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+						<input type="image" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/scr/pixel.gif" width="1" height="1">
 					</form>
-                </div>
-				<div class="col-sm-4 col-sm-offset-4 text-center">					
-                    <img src="img/shops/neck.png" class="img-responsive center-block" alt="Vespa Club of Canada Neck Warmer: Red in colour with the Vespa Club of Canada logo as a repeated pattern in darker red.">
-                    
-					<h4 class="service-heading"><?php echo $lang['shop7'] ?></h4>					
-                    <p class="text-muted"><?php echo $lang['dollar20'] ?> CAD</p>
-					<p class="text-muted"><?php echo $lang['onesize'] ?></p>
-                    <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-						<input type="hidden" name="cmd" value="_cart">
-						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
-						<input type="hidden" name="lc" value="US">
-						<input type="hidden" name="item_name" value="Vespa Club of Canada Neck Warmer">
-						<input type="hidden" name="amount" value="20.00">
-						<input type="hidden" name="currency_code" value="CAD">
-						<input type="hidden" name="button_subtype" value="products">
-						<input type="hidden" name="no_note" value="0">
-						<input type="hidden" name="add" value="1">
-						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-					</form>
-                </div>
-            </div>
-			
-            </div>
-        </div>
+        </div>        
+			</div>
+      </div>
+      </div>
     </section>
     
     <!-- Team Section -->
@@ -714,7 +735,7 @@
                   <?php echo $lang['join-why'] ?>
                 </div>
                 <div class="col-sm-4 text-center">
-                  <img src="img/cog.png" class="img-responsive img-circle center-block" alt="VCoC Member's Badge">
+                  <img src="img/cog.png" class="img-responsive center-block" alt="VCoC Member's Badge">
                   <?php echo $lang['join-included'] ?>
                 </div>
                 <div class="col-sm-4 text-center">
@@ -732,8 +753,8 @@
 						<input type="hidden" name="no_note" value="0">
 						<input type="hidden" name="add" value="1">
 						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+						<input type="image" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/scr/pixel.gif" width="1" height="1">
 					</form>
             </div>
             <div class="row">

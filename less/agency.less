@@ -80,6 +80,81 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 18px;
 	padding: 20px 40px;
 }
+// Language switch
+.language{
+  position: relative;
+  right: 10px;
+   
+  p {
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+    margin-bottom: 0;
+  }
+  input[type=radio] {
+    display: none;
+  }
+  .icons {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+  }
+  .icon{
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+  }
+  label {
+    cursor: pointer;
+    text-indent: -9999px;
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+  }
+  label[for=fr]{
+    background: url(../img/fr.png) no-repeat;
+  }
+  label[for=en]{
+    background: url(../img/en.png) no-repeat;
+  }
+}
+/* French adjustments */
+.fr {
+  .navbar-shrink a{
+    font-size: 12px;
+  }
+  .nav>li>a {
+   
+    padding: 15px 10px;
+  }
+  section {
+    h2.section-heading{
+      font-size: 30px;
+    }
+  }
+}
 
 // Custom Navigation Bar
 
@@ -180,6 +255,13 @@ h1, h2, h3, h4, h5, h6 {
 	        font-size: 1.5em;
 	    }    
 	}
+  .fr {
+    .timeline>li .timeline-image h4 {
+      font-size: 11px;
+      margin-top: 9px;
+      line-height: 18px;
+    }
+  }
 }
 
 header {
@@ -442,6 +524,11 @@ section {
 }
 
 @media(min-width:768px) {
+  .navbar-fixed-top .navbar-collapse{
+    .language {
+      position: absolute;
+    }
+  }
 	.timeline {
 		&:before {
 			left: 50%;
@@ -497,6 +584,9 @@ section {
 	        }
 	    }
 	}
+  .fr .timeline>li .timeline-image h4 {
+    margin-top: 15px;
+  }
 }
 
 @media(min-width:1200px) {
@@ -519,6 +609,9 @@ section {
 	        }
 	    }
 	}
+  .fr .timeline>li .timeline-image h4 {
+    margin-top: 25px;
+  }
 }
 
 // Team Section

@@ -1,0 +1,20 @@
+<div class="col-sm-4 text-center">
+          <img src="img/shops/VCoc_small.png" class="img-responsive center-block" alt="VCoC Rally Badge Small: The words 'Vespa Club of Canada' written in white around the round black badge. In the center is an image of a scooter rider over a red maple leaf.">
+          <h4 class="service-heading"><?php echo $lang['shop5'] ?></h4>
+          <p class="text-muted"><?php echo $lang['dollar5'] ?> CAD</p>
+					<p class="text-muted"><?php echo $lang['size'] ?>: 8.9 <?php echo $lang['inch'] ?> <?php echo $lang['black'] ?></p>				
+          <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+						<input type="hidden" name="cmd" value="_cart">
+						<input type="hidden" name="business" value="membership@vespaclubofcanada.com">
+						<input type="hidden" name="lc" value="US">
+						<input type="hidden" name="item_name" value="Vespa Club of Canada Small Badge">
+						<input type="hidden" name="amount" value="5.00">
+						<input type="hidden" name="currency_code" value="CAD">
+						<input type="hidden" name="button_subtype" value="products">
+						<input type="hidden" name="no_note" value="0">
+						<input type="hidden" name="add" value="1">
+						<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
+						<input type="image" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypalobjects.com/<?php echo $lang['addtocart'] ?>//i/scr/pixel.gif" width="1" height="1">
+					</form>
+        </div>  

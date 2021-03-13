@@ -77,11 +77,12 @@ function initMap() {
 	
 	// Multiple Markers
     var markers = [
+        ['Oceanside Scooter Club, Parksville', 49.319389,-124.313637],
         ['Last Bastion Scooter Club, Nanaimo', 49.164167, -123.936389],
         ['The Worst Scooter Club Ever, Vancouver', 49.246292, -123.116226],
         ['The Capital City Scooter Club, Victoria', 48.412375, -123.339482],
-        ['Crude City Scooter Club , Edmonton', 53.517872, -113.566729],
-        ['Apocalypse Scooter Club , Edmonton', 53.547981, -113.525560],
+        ['Crude City Scooter Club , Edmonton', 53.548034, -113.525672],
+        ['Apocalypse Scooter Club , Calgary', 51.037375, -114.084306],
         ['Scootering Manitoba , Winnipeg', 49.899754, -97.137494],
         ['Toronto Moto Scooter Club , Toronto', 43.653226, -79.383184],
         ['Dogs Bollocks Scooter Club , London', 42.986950, -81.243177],
@@ -100,6 +101,13 @@ function initMap() {
                         
     // Info Window Content
     var infoWindowContent = [
+        ['<div class="info_content">' +
+        '<h3>Oceanside Scooter Club</h3>' +
+        '<p>Scooter club based in Parksville.</p>' +        
+        '<p>Email <a href="mailto:stulou99@gmail.com" target=_blank>stulou99@gmail.com</a> or visit tne <a href="https://www.facebook.com/OceansideScooterClub/" target=_blank>Oceanside Scooter Club Facebook Group</a> for more information.</p>' +        
+        '<p>Email <a href="mailto:stulou99@gmail.com" target=_blank>stulou99@gmail.com</a> or visit tne <a href="https://www.facebook.com/OceansideScooterClub/" target=_blank>Oceanside Scooter Club Facebook Group</a> for more information.</p>' +        
+		'</div>'],
+    
         ['<div class="info_content">' +
         '<h3>Last Bastion Scooter Club</h3>' +
         '<p>Vintage scooter enthusiasts based in Nanaimo.</p>' +        
@@ -120,13 +128,13 @@ function initMap() {
 		
 		['<div class="info_content">' +
         '<h3>Crude City Scooter Club</h3>' +
-        '<p>The Crude City Scooter Club meets on the first Sunday of each month at Wild Earth Cafe. </p>' +
+        '<p>The Crude City Scooter Club meets Sundays 11:00am at Iconoclast Coffee (11807 105 Ave NW, Edmonton) for conversation and some riding. Come join us! </p>' +
 		'<p><a href="http://www.crudecityscooterclub.com/" target=_blank>More information</a></p>' +    
         '</div>'],
 		
 		['<div class="info_content">' +
         '<h3>Apocalypse Scooter Club </h3>' +
-        '<p>The ApocalypseSC meets We meet Sundays 11:00am at Iconoclast Coffee (11807 105 Ave NW, Edmonton) for conversation and some riding. Come join us.</p>' +
+        '<p>The Apocalypse Scooter Club meets for a group ride every Tuesday at 7pm at Vendome Cafe - 940 2 Ave NW. The general scooter-riding public are welcome to join us! (Club members also ride on Sundays after brunch).</p>' +
 		'<p><a href="http://www.apocalypsesc.com/" target=_blank>More information</a></p>' +    
         '</div>'],
 		
